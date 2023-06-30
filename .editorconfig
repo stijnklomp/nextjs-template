@@ -1,0 +1,19 @@
+root = true
+
+# Use tabs that are equivalent to 4 spaces
+[*]
+charset = utf-8
+indent_style = tab
+tab_width = 4
+
+# Ensure that all files have an LF line ending
+[*]
+end_of_line = lf
+
+# Trim trailing whitespace in all files
+[*]
+trim_trailing_whitespace = true
+
+# Disable insertion of a final newline in all files
+[*]
+insert_final_newline = false

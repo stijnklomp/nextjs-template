@@ -1,0 +1,70 @@
+{
+	"name": "@stijnklomp/package-template",
+	"description": "REPLACE ME - Project template for creating an npm package",
+	"version": "0.0.0",
+	"author": "stijnklomp",
+	"license": "MIT",
+	"main": "dist/cjs/index.js",
+	"module": "dist/mjs/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/mjs/index.js",
+			"require": "./dist/cjs/index.js"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "ssh://git@github.com:stijnklomp/package-template.git"
+	},
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"start": "node dist/mjs/index.js",
+		"build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fixup",
+		"clean": "rm -rf dist",
+		"test": "jest test",
+		"test:watch": "jest --watch",
+		"test:coverage": "jest --coverage",
+		"lint": "eslint .",
+		"docs": "typedoc",
+		"prepublish": "npm run build",
+		"prepare": "husky install"
+	},
+	"parser": "@babel/eslint-parser",
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.21.8",
+		"@babel/preset-typescript": "^7.21.5",
+		"@types/jest": "^29.5.2",
+		"@types/node": "^20.1.0",
+		"@typescript-eslint/eslint-plugin": "^5.59.2",
+		"@typescript-eslint/parser": "^5.59.2",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^8.40.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-airbnb-typescript": "^17.0.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jest": "^27.2.1",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"husky": "^8.0.3",
+		"jest": "^29.5.0",
+		"prettier": "^2.8.8",
+		"stijnklomp-eslint-config": "^1.0.3",
+		"typescript": "^5.0.4"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,json,css,scss}": [
+			"prettier --write"
+		]
+	}
+}

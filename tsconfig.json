@@ -1,0 +1,11 @@
+{
+	"extends": [
+		"./node_modules/stijnklomp-eslint-config/tsconfig.base",
+		"./tsconfig-base"
+	],
+	"compilerOptions": {
+		"module": "esnext",
+		"outDir": "dist/mjs",
+		"target": "esnext"
+	}
+}

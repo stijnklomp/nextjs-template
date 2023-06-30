@@ -1,0 +1,7 @@
+node_modules
+test/reports
+dist
+doc
+public/*
+!public/index.html
+.vscode
