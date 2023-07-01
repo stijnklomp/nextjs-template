@@ -1,11 +1,40 @@
 {
-	"extends": [
-		"./node_modules/stijnklomp-eslint-config/tsconfig.base",
-		"./tsconfig-base"
-	],
 	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "src",
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"inlineSourceMap": false,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"listEmittedFiles": false,
+		"listFiles": false,
 		"module": "esnext",
-		"outDir": "dist/mjs",
-		"target": "esnext"
-	}
+		"moduleResolution": "node",
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@/*": ["./*"]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"pretty": true,
+		"resolveJsonModule": true,
+		"rootDir": "src",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es5",
+		"traceResolution": false,
+		"types": ["node", "jest"]
+	},
+	"compileOnSave": false,
+	"exclude": ["node_modules", ".husky"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
