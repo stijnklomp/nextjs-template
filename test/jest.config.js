@@ -1,7 +1,12 @@
 export default {
 	clearMocks: true,
 	collectCoverage: true,
-	collectCoverageFrom: [ "<rootDir>/src/**/*.js", "<rootDir>/src/**/*.ts" ],
+	collectCoverageFrom: [
+		"<rootDir>/**/*.js",
+		"<rootDir>/**/*.ts",
+		"<rootDir>/**/*.jsx",
+		"<rootDir>/**/*.tsx"
+	],
 	coverageDirectory: "<rootDir>/test/reports/coverage",
 	coveragePathIgnorePatterns: [
 		"/node_modules/",
@@ -10,15 +15,11 @@ export default {
 		"/public/",
 		"/diagnostics/"
 	],
-	coverageReporters: [
-		"text",
-		"json"
-	],
+	coverageReporters: ["text", "json"],
 	reporters: [
 		"default",
-		[ "jest-junit", { outputDirectory: "<rootDir>/test/reports" } ]
+		["jest-junit", { outputDirectory: "<rootDir>/test/reports" }]
 	],
-	rootDir: "../",
 	testEnvironment: "node",
-	testMatch: [ "**/specs/**/*.[jt]s?(x)" ]
+	testMatch: ["**/specs/**/*.[jt]s?(x)"]
 }

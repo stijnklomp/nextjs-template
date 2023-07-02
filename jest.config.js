@@ -1,11 +1,32 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
+// export default {
+// 	testEnvironment: "node",
+// 	rootDir: ".",
+// 	preset: "ts-jest",
+// 	testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+// 	moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+// 	coverageDirectory: "coverage",
+// 	extensionsToTreatAsEsm: [".ts", ".tsx"],
+// }
 export default {
 	testEnvironment: "node",
 	rootDir: ".",
-	transform: {
-		"^.+\\.tsx?$": "ts-jest"
-	},
+	preset: "ts-jest/presets/default-esm",
+	// moduleNameMapper: {
+	//   "^(\\.{1,2}/.*)\\.js$": "$1",
+	// },
+	moduleDirectories: ["node_modules"],
 	testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
 	moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-	coverageDirectory: "coverage"
+	coverageDirectory: "coverage",
+	transform: {
+		// "^.+\\.[tj]sx?$" to process js/ts with `ts-jest`
+		// "^.+\\.m?[tj]sx?$" to process js/ts/mjs/mts with `ts-jest`
+		"^.+\\.tsx?$": [
+			"ts-jest",
+			{
+				useESM: true
+			}
+		]
+	}
 }
