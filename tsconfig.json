@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "src",
+		"baseUrl": ".",
 		"declaration": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
@@ -17,9 +17,6 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
-		"paths": {
-			"@/*": ["./*"]
-		},
 		"plugins": [
 			{
 				"name": "next"
