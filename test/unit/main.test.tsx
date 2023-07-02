@@ -1,5 +1,4 @@
-import { sum } from "../../controllers/sum"
-// import { sum } from "controllers/sum"
+import { sum } from "controllers/sum"
 
 describe("sum module", () => {
 	test("adds 1 + 2 to equal 3", () => {
