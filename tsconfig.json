@@ -18,6 +18,9 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@/styles/*": ["styles/*"]
+		},
 		"plugins": [
 			{
 				"name": "next"
