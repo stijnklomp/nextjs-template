@@ -14,7 +14,7 @@
 		"build": "next build",
 		"start": "next start",
 		"test": "NODE_OPTIONS=--experimental-vm-modules npx jest test",
-		"test:watch": "jest --watch",
+		"test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest test --watch",
 		"test:coverage": "jest --coverage",
 		"lint": "next lint",
 		"docs": "typedoc",
