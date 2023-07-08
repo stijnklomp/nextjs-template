@@ -1,10 +1,13 @@
 node_modules
+.DS_Store
 doc
 /build
 
 # Testing
-test/reports
-/coverage
+tests/unit/reports
+tests/acceptance/logs
+tests/acceptance/reports
+.gauge
 
 # NextJs
 /.next/
@@ -26,5 +29,4 @@ next-env.d.ts
 .vscode
 
 # Misc
-.DS_Store
 *.pem

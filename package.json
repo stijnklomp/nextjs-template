@@ -16,6 +16,7 @@
 		"test": "NODE_OPTIONS=--experimental-vm-modules npx jest test",
 		"test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest test --watch",
 		"test:coverage": "jest --coverage",
+		"test:acceptance": "gauge run tests/acceptance/specs/",
 		"lint": "next lint",
 		"docs": "typedoc",
 		"prepare": "husky install"
@@ -26,6 +27,7 @@
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
+		"@getgauge/cli": "^1.5.1",
 		"@types/jest": "^29.5.2",
 		"@types/node": "^20.4.1",
 		"@types/react": "^18.2.14",
@@ -50,6 +52,7 @@
 		"react-test-renderer": "^18.2.0",
 		"sass": "^1.63.6",
 		"stijnklomp-eslint-config": "^1.1.0",
+		"taiko": "^1.3.10",
 		"ts-jest": "^29.1.1",
 		"typescript": "^5.1.6"
 	},
