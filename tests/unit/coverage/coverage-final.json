@@ -1,6 +1,6 @@
 {
-	"/home/stijn/developer/personal/nextjs-template/controllers/sum.tsx": {
-		"path": "/home/stijn/developer/personal/nextjs-template/controllers/sum.tsx",
+	"/home/stijn/developer/personal/nextjs-template/features/numberCalculations/sum.tsx": {
+		"path": "/home/stijn/developer/personal/nextjs-template/features/numberCalculations/sum.tsx",
 		"statementMap": {
 			"0": {
 				"start": { "line": 1, "column": 19 },

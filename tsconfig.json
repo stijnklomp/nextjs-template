@@ -19,7 +19,10 @@
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
-			"@/styles/*": ["styles/*"]
+			"@/app/*": ["app/*"],
+			"@/features/*": ["features/*"],
+			"@/public/*": ["public/*"],
+			"@/tests/*": ["tests/*"]
 		},
 		"plugins": [
 			{

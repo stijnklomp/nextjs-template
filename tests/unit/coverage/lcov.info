@@ -1,5 +1,5 @@
 TN:
-SF:controllers/sum.tsx
+SF:features/numberCalculations/sum.tsx
 FN:1,(anonymous_1)
 FN:2,(anonymous_2)
 FNF:2
