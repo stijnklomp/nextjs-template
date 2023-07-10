@@ -18,6 +18,12 @@
 		"moduleResolution": "node",
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@/app/*": ["app/*"],
+			"@/features/*": ["features/*"],
+			"@/public/*": ["public/*"],
+			"@/tests/*": ["tests/*"]
+		},
 		"plugins": [
 			{
 				"name": "next"

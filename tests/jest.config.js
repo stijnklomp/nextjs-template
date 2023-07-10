@@ -7,18 +7,18 @@ export default {
 		"<rootDir>/**/*.jsx",
 		"<rootDir>/**/*.tsx"
 	],
-	coverageDirectory: "<rootDir>/test/reports/coverage",
+	coverageDirectory: "<rootDir>/tests/unit/coverage",
 	coveragePathIgnorePatterns: [
 		"/node_modules/",
 		"/doc/",
-		"/test/",
+		"/tests/",
 		"/public/",
 		"/diagnostics/"
 	],
 	coverageReporters: ["text", "json"],
 	reporters: [
 		"default",
-		["jest-junit", { outputDirectory: "<rootDir>/test/reports" }]
+		["jest-junit", { outputDirectory: "<rootDir>/tests/unit/reports" }]
 	],
 	testEnvironment: "node",
 	testMatch: ["**/specs/**/*.[jt]s?(x)"]
