@@ -4,7 +4,7 @@ doc
 /build
 
 # Testing
-tests/unit/reports
+tests/unit/coverage
 tests/acceptance/logs
 tests/acceptance/reports
 .gauge
