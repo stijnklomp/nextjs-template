@@ -1,6 +1,9 @@
 module.exports = {
 	root: true,
-	extends: ["./node_modules/stijnklomp-eslint-config/eslint.js", "next/core-web-vitals"],
+	extends: [
+		"./node_modules/stijnklomp-eslint-config/eslint.js",
+		"next/core-web-vitals"
+	],
 	parser: "@typescript-eslint/parser",
 	plugins: ["@typescript-eslint", "prettier"],
 	parserOptions: {
