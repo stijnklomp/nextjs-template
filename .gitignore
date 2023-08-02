@@ -1,3 +1,4 @@
+# Config
 node_modules
 .DS_Store
 doc
@@ -30,3 +31,8 @@ next-env.d.ts
 
 # Misc
 *.pem
+
+# Code
+
+## Typescript
+features/typescript
