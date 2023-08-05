@@ -2,46 +2,50 @@
 import React from "react"
 
 import {
-	MainNavbarDispatchContext,
-	UseReducer,
-	TModel,
-	TMainNavbarModel,
-	CountActionKind,
-	MyAction
+	SumDispatchContext,
+	SumReducer,
+	TSumDispatch,
+	TSumModel,
+	SumAction,
+	SumActionType
 } from "./model"
+import { SumButtons } from "./button"
+// import { sum } from ".."
 
-export const mainNavbarReducer = (
-	state: TMainNavbarModel,
-	action: MyAction
-): TMainNavbarModel => {
+export const sumReducer = (state: TSumModel, action: SumAction): TSumModel => {
 	const { type, payload } = action
 
 	switch (type) {
-		case CountActionKind.INCREASE:
+		case SumActionType.INCREASE:
 			return {
 				...state,
-				value: state.count + payload
+				// sum: sum(state.sum + payload)
+				sum: state.sum + payload
 			}
-		case CountActionKind.DECREASE:
+		case SumActionType.DECREASE:
 			return {
 				...state,
-				value: state.count - payload
+				// sum: sum(state.sum - payload)
+				sum: state.sum - payload
 			}
 		default:
 			return state
 	}
 }
 
-export const NavigationComponent = (): JSX.Element => {
-	const { Provider }: { Provider: React.Provider<TModel> } =
-		MainNavbarDispatchContext
+export const SumComponent = (): JSX.Element => {
+	const { Provider }: { Provider: React.Provider<TSumDispatch> } =
+		SumDispatchContext
 
-	const [state, dispatch]: [TMainNavbarModel, React.Dispatch<MyAction>] =
-		UseReducer()
+	const [state, dispatch]: [TSumModel, React.Dispatch<SumAction>] =
+		SumReducer()
 
 	return (
-		<>
-			<Provider value={{ state, dispatch }}></Provider>
-		</>
+		<Provider value={{ state, dispatch }}>
+			<SumButtons />
+			<h1>{state.sum}</h1>
+		</Provider>
 	)
 }
+
+SumComponent.displayName = "Summerize Component"

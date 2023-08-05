@@ -1,28 +1,20 @@
-import { MainNavbarDispatchUse, CountActionKind } from "./model"
+import { SumDispatchUse, SumActionType } from "./model"
 
-export const SumButtons = ({
-	children
-}: {
-	children: React.ReactNode
-}): JSX.Element => {
-	const { state, dispatch } = MainNavbarDispatchUse()
+export const SumButtons = (): JSX.Element => {
+	const { dispatch } = SumDispatchUse()
 
-	const buttonClicked = ({ type }: { type: CountActionKind }) => {
+	const buttonClicked = ({ type }: { type: SumActionType }) => {
 		dispatch({ type, payload: 4 })
 	}
 
 	return (
 		<h1>
 			<div
-				onClick={() =>
-					buttonClicked({ type: CountActionKind.DECREASE })
-				}>
+				onClick={() => buttonClicked({ type: SumActionType.DECREASE })}>
 				-
 			</div>
 			<div
-				onClick={() =>
-					buttonClicked({ type: CountActionKind.DECREASE })
-				}>
+				onClick={() => buttonClicked({ type: SumActionType.INCREASE })}>
 				+
 			</div>
 		</h1>

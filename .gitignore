@@ -33,6 +33,3 @@ next-env.d.ts
 *.pem
 
 # Code
-
-## Typescript
-features/typescript
