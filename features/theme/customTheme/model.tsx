@@ -1,10 +1,5 @@
 import React from "react"
 
-import {
-	ExpandRecursively,
-	ExpandFunctionRecursively
-} from "@/features/typescript/intellisense"
-
 type TTheme = "dark" | "light"
 
 export type TThemeModel = {
@@ -21,14 +16,13 @@ export type TThemeModelUse = {
 	setThemeModel: TThemeModelInit[1]
 }
 
-export const ThemeModel: ExpandRecursively<TThemeModel> = {
+export const ThemeModel: TThemeModel = {
 	currentColourMode: "dark"
 }
 
-export const ThemeModelContext = React.createContext<
-	ExpandRecursively<TThemeModelUse>
->({} as TThemeModelUse)
+export const ThemeModelContext = React.createContext<TThemeModelUse>(
+	{} as TThemeModelUse
+)
 
-export const ThemeModelUse: ExpandFunctionRecursively<
-	() => TThemeModelUse
-> = () => React.useContext(ThemeModelContext)
+export const ThemeModelUse: () => TThemeModelUse = () =>
+	React.useContext(ThemeModelContext)
