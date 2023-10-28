@@ -20,5 +20,9 @@ module.exports = {
 	},
 	settings: {
 		"prettier/prettier": require("./node_modules/stijnklomp-eslint-config/prettierRules.js")
+	},
+	rules: {
+		quotes: ["error", "double"],
+		semi: ["error", "never", { beforeStatementContinuationChars: "always" }]
 	}
 }

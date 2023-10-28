@@ -4,32 +4,33 @@ node_modules
 doc
 /build
 
-# Testing
-tests/unit/coverage
-tests/acceptance/logs
-tests/acceptance/reports
+## Testing
+tests/unit/coverage/*
+tests/unit/reports/*
+tests/acceptance/logs/*
+tests/acceptance/reports/*
 .gauge
 
-# NextJs
+## NextJs
 /.next/
 /out/
 
-# Debug
+## Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env files
+## Local env files
 .env*.local
 
-# Typescript
+## Typescript
 *.tsbuildinfo
 next-env.d.ts
 
-# Editors
+## Editors
 .vscode
 
-# Misc
+## Misc
 *.pem
 
 # Code

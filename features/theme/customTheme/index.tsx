@@ -3,7 +3,7 @@ import React from "react"
 
 import { ThemeModelContext, ThemeModel, TThemeModelInit } from "./model"
 
-export const CustomThemeWrapper = ({
+const CustomThemeWrapper = ({
 	children
 }: {
 	children: React.ReactNode
@@ -21,3 +21,7 @@ export const CustomThemeWrapper = ({
 		</ThemeModelContext.Provider>
 	)
 }
+
+CustomThemeWrapper.displayName = "Custom theme wrapper"
+
+export { CustomThemeWrapper }
