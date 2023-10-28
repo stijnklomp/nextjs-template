@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google"
 
-import "@/features/theme/global.scss"
 import { CustomThemeWrapper } from "@/features/theme/customTheme/"
 
 const inter = Inter({ subsets: ["latin"] })
