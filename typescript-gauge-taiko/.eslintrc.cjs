@@ -19,7 +19,7 @@ module.exports = {
 		es6: true
 	},
 	settings: {
-		"prettier/prettier": require("./node_modules/stijnklomp-eslint-config/prettierRules.js")
+		"prettier/prettier": require("stijnklomp-eslint-config/prettierRules.js")
 	},
 	rules: {
 		quotes: ["error", "double"],
