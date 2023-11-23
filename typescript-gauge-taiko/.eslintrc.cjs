@@ -21,6 +21,7 @@ module.exports = {
 	settings: {
 		"prettier/prettier": require("stijnklomp-eslint-config/prettierRules.js")
 	},
+	ignorePatterns: [".*", "doc", "node_modules", "env", "Dockerfiles", "LICENSE", "global.d.ts", "manifest.json", "next-env.d.ts", "next.config.js"],
 	rules: {
 		quotes: ["error", "double"],
 		semi: ["error", "never", { beforeStatementContinuationChars: "always" }]
