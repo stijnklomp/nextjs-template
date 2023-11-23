@@ -12,7 +12,7 @@
 		"test": "node --no-warnings --experimental-vm-modules $( [ -f ./node_modules/.bin/jest ] && echo ./node_modules/.bin/jest || which jest )",
 		"test:coverage": "npm run test -- --coverage",
 		"test:acceptance": "gauge run tests/acceptance/specs/",
-		"lint": "next lint",
+		"lint": "playwright test",
 		"docs": "rimraf doc/code && typedoc",
 		"prepare": "husky install"
 	},
