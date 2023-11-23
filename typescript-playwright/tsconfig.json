@@ -1,0 +1,51 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"inlineSourceMap": false,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"listEmittedFiles": false,
+		"listFiles": false,
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@/app/*": ["app/*"],
+			"@/utils/*": ["utils/*"],
+			"@/features/*": ["features/*"],
+			"@/public/*": ["public/*"],
+			"@/tests/*": ["tests/*"],
+			"@/styles/*": ["styles/*"]
+		},
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"pretty": true,
+		"resolveJsonModule": true,
+		"rootDir": ".",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "es5",
+		"traceResolution": false,
+		"types": ["node", "jest", "@testing-library/jest-dom"]
+	},
+	"exclude": ["node_modules", ".husky"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"global.d.ts"
+	]
+}
