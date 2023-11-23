@@ -34,3 +34,7 @@ next-env.d.ts
 *.pem
 
 # Code
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
