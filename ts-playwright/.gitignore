@@ -7,9 +7,7 @@ doc
 ## Testing
 tests/unit/coverage/*
 tests/unit/reports/*
-tests/acceptance/logs/*
-tests/acceptance/reports/*
-.gauge
+playwright-report
 
 ## NextJs
 /.next/
