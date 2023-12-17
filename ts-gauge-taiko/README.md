@@ -4,9 +4,9 @@
 
 Project template for creating web applications with Typescript and NextJs.
 
-### Testing
+## Testing
 
-#### Unit tests
+### Unit tests
 
 Unit tests are written and executed in [Jest](https://jestjs.io/).
 
@@ -16,11 +16,11 @@ Unit tests are written and executed in [Jest](https://jestjs.io/).
 npm run test
 ```
 
-#### Acceptance tests
+### Acceptance tests
 
 Acceptance tests are executed with [Gauge](https://gauge.org/) and [Taiko](https://taiko.dev/) for running them in the (headless) browser.
 
-#### Prerequisites
+##### Prerequisites
 
 If using WSL on Windows (10), install the following software to run GUI's through WSL:
 

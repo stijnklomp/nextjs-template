@@ -4,21 +4,21 @@
 
 Project template for creating web applications with Typescript and NextJs.
 
-### Testing
+## Testing
 
-#### Unit tests
+### Unit tests
 
 Unit tests are written and executed in [Jest](https://jestjs.io/).
 
 ##### Run unit tests
 
-```bash
+```sh
 npm run test
 ```
 
-#### Acceptance tests
+### End-to-end tests
 
-Acceptance tests are executed with [Gauge](https://gauge.org/) and [Taiko](https://taiko.dev/) for running them in the (headless) browser.
+End-to-end tests are executed with [Playwright](https://playwright.dev/) and run in headless mode by default.
 
 #### Prerequisites
 
@@ -30,7 +30,7 @@ If using WSL on Windows (10), install the following software to run GUI's throug
 
     1.1. After installation, create a new desktop shortcut and add the following command to properties -> shortcut -> target
 
-    ```bash
+    ```sh
     "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
     ```
 
@@ -54,10 +54,10 @@ If using WSL on Windows (10), install the following software to run GUI's throug
 
     1.2. *Optional step:* Add the newly created shortcut to your startup folder
 
-2. Install [Google Chrome for Linux](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-google-chrome-for-linux)
+##### Run e2e tests
 
-##### Run acceptance tests
-
-```bash
-npm run test:acceptance
+```sh
+npm run test:e2e
 ```
+
+2. Install [Google Chrome for Linux](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-google-chrome-for-linux)
