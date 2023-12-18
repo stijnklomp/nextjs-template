@@ -11,8 +11,8 @@
 		"start": "next start",
 		"test": "node --no-warnings --experimental-vm-modules $( [ -f ./node_modules/.bin/jest ] && echo ./node_modules/.bin/jest || which jest )",
 		"test:coverage": "npm run test -- --coverage",
-		"test:acceptance": "gauge run tests/acceptance/specs/",
-		"lint": "playwright test",
+		"test:e2e": "playwright test",
+		"lint": "eslint .",
 		"docs": "rimraf doc/code && typedoc",
 		"prepare": "husky install"
 	},
@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
-		"@getgauge/cli": "^1.5.6",
+		"@playwright/test": "^1.40.0",
 		"@testing-library/jest-dom": "^6.1.4",
 		"@testing-library/react": "^14.0.0",
 		"@types/jest": "^29.5.6",
@@ -53,7 +53,6 @@
 		"react-test-renderer": "^18.2.0",
 		"sass": "^1.69.5",
 		"stijnklomp-eslint-config": "^3.0.0",
-		"taiko": "^1.3.10",
 		"ts-jest": "^29.1.1",
 		"typedoc": "^0.25.2",
 		"typescript": "^5.2.0"
