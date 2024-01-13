@@ -6,8 +6,11 @@ doc
 
 ## Testing
 tests/unit/coverage/*
+!tests/unit/coverage/.gitkeep
 tests/unit/reports/*
-playwright-report
+!tests/unit/reports/.gitkeep
+playwright-report/*
+!playwright-report/.gitkeep
 
 ## NextJs
 /.next/
@@ -25,14 +28,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-## Editors
-.vscode
-
 ## Misc
 *.pem
-
-# Code
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
