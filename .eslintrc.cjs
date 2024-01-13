@@ -22,7 +22,6 @@ module.exports = {
 	settings: {
 		"prettier/prettier": require("./node_modules/stijnklomp-linting-formatting-config/prettier/prettierRules.js")
 	},
-	ignorePatterns: ["doc", "node_modules", "env", "Dockerfiles", "LICENSE", "global.d.ts", "next-env.d.ts", "next.config.js"],
 	rules: {
 		quotes: ["error", "double"],
 		semi: ["error", "never", { beforeStatementContinuationChars: "always" }]
