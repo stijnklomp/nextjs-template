@@ -46,6 +46,9 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"global.d.ts"
+		"global.d.ts",
+		"jest.setup.js",
+		"next.config.js",
+		".eslintrc.cjs"
 	]
 }

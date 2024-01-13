@@ -2,7 +2,7 @@
 
 ![GitHub](https://img.shields.io/github/license/stijnklomp/nextjs-template?style=flat)
 
-Project template for creating web applications with Typescript and NextJs.
+Project template for creating front-end web applications with NextJs and Typescript.
 
 ## Testing
 
