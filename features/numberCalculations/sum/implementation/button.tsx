@@ -1,10 +1,10 @@
 import { SumDispatchUse, SumActionType } from "./model"
 
-export const SumButtons = (): JSX.Element => {
+export const SumButtons = () => {
 	const { dispatch } = SumDispatchUse()
 
 	const buttonClicked = ({ type }: { type: SumActionType }) => {
-		dispatch({ type, payload: 4 })
+		dispatch({ type, payload: 2 })
 	}
 
 	return (
@@ -21,4 +21,4 @@ export const SumButtons = (): JSX.Element => {
 	)
 }
 
-SumButtons.displayName = "App Layout"
+SumButtons.displayName = "Sum button"

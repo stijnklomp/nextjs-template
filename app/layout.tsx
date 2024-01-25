@@ -10,7 +10,7 @@ export const metadata = {
 		"Project template for creating web applications with Typescript and NextJs"
 }
 
-const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => (
+const Layout = ({ children }: { children: React.ReactNode }) => (
 	<html lang="en">
 		<body className={inter.className}>
 			<CustomThemeWrapper>{children}</CustomThemeWrapper>

@@ -1,38 +1,33 @@
 import React from "react"
 
+import { ReducerActionTemplate, ReducerStateTemplate } from "types/model"
 import { sumReducer } from "./index"
 
-export type TSumModel = {
+type SumModel = {
 	sum: number
 }
 
-export type TSumModelInit = [
-	TSumModel,
-	React.Dispatch<React.SetStateAction<TSumModel>>
+export type SumModelInit = [
+	SumModel,
+	React.Dispatch<React.SetStateAction<SumModel>>
 ]
-
-export type SumAction = {
-	type: SumActionType
-	payload: number
-}
-
-export type TSumDispatch = {
-	state: TSumModelInit[0]
-	dispatch: React.Dispatch<SumAction>
-}
 
 export enum SumActionType {
 	INCREASE,
 	DECREASE
 }
 
-export const SumReducer: () => [TSumModel, React.Dispatch<SumAction>] = () =>
+type SumAction = ReducerActionTemplate<SumActionType, number>
+
+type TSumDispatch = ReducerStateTemplate<SumModel, SumAction>
+
+export type SumReducerType = (state: SumModel, action: SumAction) => SumModel
+
+export const SumReducer = () =>
 	React.useReducer(sumReducer, {
 		sum: 0
 	})
 
-export const SumDispatchContext: React.Context<TSumDispatch> =
-	React.createContext({} as TSumDispatch)
+export const SumDispatchContext = React.createContext({} as TSumDispatch)
 
-export const SumDispatchUse: () => TSumDispatch = () =>
-	React.useContext(SumDispatchContext)
+export const SumDispatchUse = () => React.useContext(SumDispatchContext)

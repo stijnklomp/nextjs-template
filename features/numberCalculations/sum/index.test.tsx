@@ -1,4 +1,4 @@
-import { sum } from "@/features/numberCalculations/sum"
+import { sum } from "."
 
 describe("sum module", () => {
 	test("adds 1 + 2 to equal 3", () => {

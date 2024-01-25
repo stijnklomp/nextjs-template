@@ -3,42 +3,37 @@ import React from "react"
 
 import {
 	SumDispatchContext,
-	SumReducer,
-	TSumDispatch,
-	TSumModel,
-	SumAction,
+	// SumReducer,
+	SumReducerType,
 	SumActionType
 } from "./model"
 import { SumButtons } from "./button"
-// import { sum } from ".."
+import { sum } from ".."
 
-export const sumReducer = (state: TSumModel, action: SumAction): TSumModel => {
+export const sumReducer: SumReducerType = (state, action) => {
 	const { type, payload } = action
 
 	switch (type) {
 		case SumActionType.INCREASE:
 			return {
 				...state,
-				// sum: sum(state.sum + payload)
-				sum: state.sum + payload
+				sum: sum(state.sum + payload)
 			}
 		case SumActionType.DECREASE:
 			return {
 				...state,
-				// sum: sum(state.sum - payload)
-				sum: state.sum - payload
+				sum: sum(state.sum - payload)
 			}
 		default:
 			return state
 	}
 }
 
-export const SumComponent = (): JSX.Element => {
-	const { Provider }: { Provider: React.Provider<TSumDispatch> } =
-		SumDispatchContext
-
-	const [state, dispatch]: [TSumModel, React.Dispatch<SumAction>] =
-		SumReducer()
+export const SumComponent = () => {
+	const { Provider } = SumDispatchContext
+	const [state, dispatch] = React.useReducer(sumReducer, {
+		sum: 0
+	})
 
 	return (
 		<Provider value={{ state, dispatch }}>
