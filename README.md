@@ -1,63 +1,50 @@
-# NextJs template
+# Next.js template
 
-![GitHub](https://img.shields.io/github/license/stijnklomp/nextjs-template?style=flat)
+<p align="center">This project template serves as a starting point for building web applications with <a href="https://nextjs.org/" target="_blank">Next.js</a>, <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>, and best practices in place. It comes pre-configured with essential tools to ensure code quality, maintainability, and a streamlined development workflow.</p>
+<p align="center">
+<img src="https://img.shields.io/github/license/stijnklomp/nextjs-template?style=flat" alt="Package License" />
+</p>
 
-Project template for creating front-end web applications with NextJs and Typescript.
+## Features
 
-## Testing
+- Next.js: A powerful React framework for building server-rendered and statically generated web applications.
+- TypeScript: Static typing with TypeScript, enhancing code quality and developer productivity.
+- Prettier & ESLint: Automatic code formatting and linting for consistent code style and adherence to best practices.
+- Jest: Unit testing framework for ensuring code quality and functionality.
+- Playwright: End-to-end testing framework for comprehensive testing of user interactions and browser behavior.
+- SASS/SCSS:  Powerful styling capabilities with variables, mixins, nesting, and more.
+- Husky: Git hooks for running linting and tests before commits, ensuring code quality standards are met.
+- TypeDoc: Automatic generation of TypeScript documentation for improved code clarity and collaboration.
 
-### Unit tests
+## Getting started
 
-Unit tests are written and executed in [Jest](https://jestjs.io/).
-
-##### Run unit tests
-
+- Clone the repository:
 ```sh
-npm run test
+git clone <repository-url>
 ```
 
-### End-to-end tests
-
-End-to-end tests are executed with [Playwright](https://playwright.dev/) and run in headless mode by default.
-
-#### Prerequisites
-
-If using WSL on Windows (10), install the following software to run GUI's through WSL:
-
-1. Install an X server to allow GUI to run via WSL
-
-    Here is an example using [VcXsrv](https://sourceforge.net/projects/vcxsrv/):
-
-    1.1. After installation, create a new desktop shortcut and add the following command to properties -> shortcut -> target
-
-    ```sh
-    "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl -dpi auto
-    ```
-
-    - `"C:\Program Files\VcXsrv\vcxsrv.exe"`: This is the path to the VcXsrv executable file, which is the main program that runs the X server
-
-    - `:0`: This specifies the display number for the X server. In this case, it's set to `0`
-
-    - `-ac`: This option allows any client to connect to the X server
-
-    - `-terminate`: This option terminates the X server when the last client disconnects
-
-    - `-lesspointer`: This option hides the mouse pointer when it's over a window.
-
-    - `-multiwindow`: This option enables multiple windows instead of a single root window
-
-    - `-clipboard`: This option enables clipboard synchronization between the X server and Windows
-
-    - `-wgl`: This option uses Windows Graphics Library for OpenGL rendering
-
-    - `-dpi auto`: This option automatically determines the DPI (dots per inch) setting based on the Windows display configuration
-
-    1.2. *Optional step:* Add the newly created shortcut to your startup folder
-
-##### Run e2e tests
-
+- Install dependencies:
 ```sh
-npm run test:e2e
+npm install
 ```
 
-2. Install [Google Chrome for Linux](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps#install-google-chrome-for-linux)
+- Start the development server:
+```sh
+npm run dev
+```
+Your application will now be available at http://localhost:3000.
+
+## Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the production-ready application.
+- `npm run start`: Starts the production server.
+- `npm run test`: Runs unit tests.
+- `npm run test:coverage`: Runs unit tests with coverage report.
+- `npm run test:e2e`: Runs end-to-end tests.
+- `npm run lint`: Runs linting and formatting checks.
+- `npm run docs`: Generates TypeScript documentation.
+
+# License
+
+This project is licensed under the MIT License. Feel free to customize and use it for your own projects.
