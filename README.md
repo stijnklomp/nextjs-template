@@ -1,8 +1,9 @@
 # Next.js template
 
-![GitHub](https://img.shields.io/github/license/stijnklomp/nextjs-template?style=flat)
-
-This project template serves as a starting point for building web applications with Next.js, TypeScript, and best practices in place. It comes pre-configured with essential tools to ensure code quality, maintainability, and a streamlined development workflow.
+<p align="center">This project template serves as a starting point for building web applications with <a href="https://nextjs.org/" target="_blank">Next.js</a>, <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a>, and best practices in place. It comes pre-configured with essential tools to ensure code quality, maintainability, and a streamlined development workflow.</p>
+<p align="center">
+<img src="https://img.shields.io/github/license/stijnklomp/nextjs-template?style=flat" alt="Package License" />
+</p>
 
 ## Features
 
