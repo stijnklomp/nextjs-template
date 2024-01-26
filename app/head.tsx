@@ -1,4 +1,4 @@
-const Head = (): JSX.Element => (
+const Head = () => (
 	<>
 		<title>Home</title>
 		<meta
