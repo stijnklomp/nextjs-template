@@ -1,0 +1,9 @@
+doc
+node_modules
+env
+Dockerfile
+LICENSE
+global.d.ts
+manifest.json
+next-env.d.ts
+next.config.js

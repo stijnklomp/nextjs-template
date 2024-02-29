@@ -1,7 +1,6 @@
 import React from "react"
 
 import { ReducerActionTemplate, ReducerStateTemplate } from "types/model"
-import { sumReducer } from "./index"
 
 type SumModel = {
 	sum: number
@@ -22,11 +21,6 @@ type SumAction = ReducerActionTemplate<SumActionType, number>
 type TSumDispatch = ReducerStateTemplate<SumModel, SumAction>
 
 export type SumReducerType = (state: SumModel, action: SumAction) => SumModel
-
-export const SumReducer = () =>
-	React.useReducer(sumReducer, {
-		sum: 0
-	})
 
 export const SumDispatchContext = React.createContext({} as TSumDispatch)
 

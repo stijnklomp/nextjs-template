@@ -1,5 +1,0 @@
-// This file is here to prevent NextJs from overwriting the specified configurations
-{
-	"extends": "./tsconfig.json",
-	"compilerOptions": { "jsx": "react-jsx" }
-}

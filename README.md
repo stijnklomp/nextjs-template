@@ -16,35 +16,51 @@
 - Husky: Git hooks for running linting and tests before commits, ensuring code quality standards are met.
 - TypeDoc: Automatic generation of TypeScript documentation for improved code clarity and collaboration.
 
-## Getting started
+## Installation
 
-- Clone the repository:
 ```sh
-git clone <repository-url>
+npm ci
 ```
 
-- Install dependencies:
-```sh
-npm install
-```
+### Running
 
-- Start the development server:
 ```sh
+# development
 npm run dev
+
+# production mode
+npm run build && npm run start
 ```
-Your application will now be available at http://localhost:3000.
 
-## Scripts
+> http://localhost:3000/
 
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the production-ready application.
-- `npm run start`: Starts the production server.
-- `npm run test`: Runs unit tests.
-- `npm run test:coverage`: Runs unit tests with coverage report.
-- `npm run test:e2e`: Runs end-to-end tests.
-- `npm run lint`: Runs linting and formatting checks.
-- `npm run docs`: Generates TypeScript documentation.
+## Testing
 
-# License
+### Unit tests
+
+Unit tests are written and executed in [Jest](https://jestjs.io/).
+
+##### Run unit tests
+
+```bash
+npm run test
+```
+
+### End-to-end tests
+
+End-to-end tests are executed with [Playwright](https://playwright.dev/) and runs in headless mode by default.
+
+##### Run e2e tests
+
+```sh
+npm run test:e2e
+```
+
+## Developer Notes
+
+- Prettier will automatically format any staged files when running `git commit`\
+To avoid the pre-commit hook from running you can specify `-n` when running git commit.
+
+# Licensing
 
 This project is licensed under the MIT License. Feel free to customize and use it for your own projects.
