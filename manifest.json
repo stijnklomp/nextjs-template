@@ -1,4 +1,4 @@
 {
-	"Language": "js",
+	"Language": "tsx",
 	"Plugins": ["html-report"]
 }

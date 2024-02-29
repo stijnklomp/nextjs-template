@@ -1,2 +1,5 @@
-global.d.ts
+node_modules/
 next-env.d.ts
+
+global.d.ts
+test/unit/utils/mock.tsx
