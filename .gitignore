@@ -1,20 +1,15 @@
 # Config
 node_modules
-.DS_Store
-doc
-/build
+.swc
+doc/code
 
 ## Testing
-tests/unit/coverage/*
-!tests/unit/coverage/.gitkeep
-tests/unit/reports/*
-!tests/unit/reports/.gitkeep
-playwright-report/*
-!playwright-report/.gitkeep
-
-## NextJs
-/.next/
-/out/
+test/unit/coverage/*
+!test/unit/coverage/.gitkeep
+test/unit/reports/*
+!test/unit/reports/.gitkeep
+test/e2e/reports/*
+!test/e2e/reports/.gitkeep
 
 ## Debug
 npm-debug.log*
@@ -27,6 +22,10 @@ yarn-error.log*
 ## Typescript
 *.tsbuildinfo
 next-env.d.ts
+
+## NextJs
+.next
+out
 
 ## Misc
 *.pem

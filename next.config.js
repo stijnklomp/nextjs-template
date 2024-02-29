@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	eslint: {
+		ignoreDuringBuilds: true
+	},
+	output: "standalone",
 	reactStrictMode: true,
 	swcMinify: true,
-	modularizeImports: {
-		"@mui/icons-material": {
-			transform: "@mui/icons-material/{{member}}"
-		}
-	},
 	typescript: {
 		ignoreBuildErrors: true
 	}

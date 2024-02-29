@@ -15,7 +15,7 @@
 		"listEmittedFiles": false,
 		"listFiles": false,
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "Bundler",
 		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"paths": {
@@ -23,7 +23,7 @@
 			"@/utils/*": ["utils/*"],
 			"@/features/*": ["features/*"],
 			"@/public/*": ["public/*"],
-			"@/tests/*": ["tests/*"],
+			"@/test/*": ["test/*"],
 			"@/styles/*": ["styles/*"]
 		},
 		"plugins": [
@@ -35,20 +35,23 @@
 		"resolveJsonModule": true,
 		"rootDir": ".",
 		"skipLibCheck": true,
+		"sourceMap": true,
 		"strict": true,
+		"strictNullChecks": true,
 		"target": "es5",
 		"traceResolution": false,
 		"types": ["node", "jest", "@testing-library/jest-dom"]
 	},
-	"exclude": ["node_modules", ".husky"],
+	"exclude": ["node_modules", ".husky", ".next"],
 	"include": [
-		"next-env.d.ts",
+		"**/*.js",
+		"**/*.jsx",
 		"**/*.ts",
 		"**/*.tsx",
-		".next/types/**/*.ts",
 		"global.d.ts",
 		"jest.setup.js",
 		"next.config.js",
-		".eslintrc.cjs"
+		".eslintrc.cjs",
+		".next/types/**/*.ts"
 	]
 }

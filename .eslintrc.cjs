@@ -1,11 +1,25 @@
 module.exports = {
-	root: true,
+	env: {
+		browser: true,
+		node: true,
+		es6: true
+	},
 	extends: [
+		"plugin:jsonc/recommended-with-jsonc",
 		"./node_modules/stijnklomp-linting-formatting-config/eslintRules.js",
 		"./node_modules/stijnklomp-linting-formatting-config/jestRules.js",
 		"./node_modules/stijnklomp-linting-formatting-config/typescript/typescriptRules.js",
 		"next/core-web-vitals",
 		"prettier"
+	],
+	overrides: [
+		{
+			files: ["*.json", "*.json5", "*.jsonc"],
+			parser: "jsonc-eslint-parser",
+			rules: {
+				"@typescript-eslint/no-unnecessary-condition": "off"
+			}
+		}
 	],
 	parser: "@typescript-eslint/parser",
 	plugins: ["@typescript-eslint", "prettier", "@stylistic"],
@@ -14,15 +28,7 @@ module.exports = {
 		sourceType: "module",
 		project: "./tsconfig.json"
 	},
-	env: {
-		browser: true,
-		node: true,
-		// commonjs: true,
-		es6: true
-	},
-	settings: {
-		"prettier/prettier": require("./node_modules/stijnklomp-linting-formatting-config/prettier/prettierRules.js")
-	},
+	root: true,
 	rules: {
 		"prettier/prettier": 2,
 		quotes: ["error", "double"],
@@ -35,5 +41,8 @@ module.exports = {
 			"error",
 			{ max: 1, maxBOF: 0, maxEOF: 0 }
 		]
+	},
+	settings: {
+		"prettier/prettier": require("./node_modules/stijnklomp-linting-formatting-config/prettier/prettierRules.js")
 	}
 }

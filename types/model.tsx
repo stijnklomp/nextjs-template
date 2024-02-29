@@ -1,4 +1,4 @@
-export type ReducerActionTemplate<Kind, Payload = unknown> = {
+export type ReducerActionTemplate<Kind, Payload> = {
 	type: Kind
 	payload: Payload
 }

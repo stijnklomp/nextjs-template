@@ -1,12 +1,7 @@
 "use client"
 import React from "react"
 
-import {
-	SumDispatchContext,
-	// SumReducer,
-	SumReducerType,
-	SumActionType
-} from "./model"
+import { SumDispatchContext, SumReducerType, SumActionType } from "./model"
 import { SumButtons } from "./button"
 import { sum } from ".."
 
