@@ -1,0 +1,156 @@
+x-acceptance: &acceptance
+  image: oven/bun:alpine
+  volumes:
+    - .:/src
+  working_dir: /src
+  tty: true
+  depends_on:
+    # rabbitmq:
+    #   condition: service_healthy
+    # db-migration:
+    #   condition: service_completed_successfully
+  environment:
+    RABBIT_HOST: rabbitmq
+    DATABASE_URL: "postgresql://dev:admin123@db:5432/nextjs?schema=template"
+  env_file:
+    - path: .env.development
+  ports:
+    - 3001:3001
+
+x-nextjs: &nextjs
+  tty: true
+  depends_on:
+    # rabbitmq:
+    #   condition: service_healthy
+    # db-migration:
+    #   condition: service_completed_successfully
+  environment:
+    RABBIT_HOST: rabbitmq
+    DATABASE_URL: "postgresql://dev:admin123@db:5432/nextjs?schema=template"
+  env_file:
+    - path: .env.development
+  ports:
+    - ${API_PORT:-3000}:3000
+
+services:
+  local:
+    <<: *nextjs
+    build:
+      context: .
+    profiles:
+      - local
+      - test
+
+  dev:
+    <<: *nextjs
+    image: oven/bun:alpine
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: |
+      sh -c "
+        if [ ! -d node_modules ]; then
+          bun install --frozen-lockfile --ignore-scripts
+        fi
+        bun run dev
+      "
+    profiles:
+      - dev
+
+  # rabbitmq:
+  #   image: rabbitmq
+  #   restart: always
+  #   healthcheck:
+  #     test: rabbitmq-diagnostics -q ping
+  #     interval: 30s
+  #     timeout: 5s
+  #     retries: 5
+  #   volumes:
+  #     - rabbitmq:/var/lib/rabbitmq/data
+  #     - rabbitmq:/var/log/rabbitmq/log
+  #   environment:
+  #     RABBITMQ_DEFAULT_USER: ${RABBIT_USER:-guest}
+  #     RABBITMQ_DEFAULT_PASSWORD: ${RABBIT_PASSWORD:-guest}
+  #   env_file:
+  #     - path: .env.development
+  #   ports:
+  #     - ${RABBIT_PORT:-5672}:5672
+  #     - 15672:15672
+
+  # db:
+  #   image: postgres:latest
+  #   restart: always
+  #   shm_size: 128mb
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql
+  #   healthcheck:
+  #     test: pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER
+  #     interval: 20s
+  #     timeout: 5s
+  #     retries: 6
+  #   environment:
+  #     POSTGRES_USER: ${DATABASE_USERNAME:-dev}
+  #     POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-admin123}
+  #     POSTGRES_DB: ${DATABASE_DB:-nextjs}
+  #   env_file:
+  #     - path: .env.development
+  #   ports:
+  #     - ${DATABASE_PORT:-5432}:5432
+
+  test:
+    image: oven/bun:alpine
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test"
+    profiles:
+      - test
+
+  test-coverage:
+    image: oven/bun:alpine
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test:coverage"
+    profiles:
+      - test
+
+  e2e:
+    image: mcr.microsoft.com/playwright:v1.60.0
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test:e2e"
+    depends_on:
+      - dev
+    profiles:
+      - test
+
+  acceptance:
+    <<: *acceptance
+    command: |
+      sh -c "
+        if [ ! -d node_modules ]; then
+          bun install --frozen-lockfile --ignore-scripts
+        fi
+        sleep infinity
+      "
+    profiles:
+      - local
+      - dev
+
+  acceptance-once:
+    <<: *acceptance
+    command: |
+      sh -c "
+        if [ ! -d node_modules ]; then
+          bun install --frozen-lockfile --ignore-scripts
+        fi
+        bun run test:acceptance
+      "
+    profiles:
+      - test
+
+# volumes:
+#   rabbitmq:
+#   postgres-data:

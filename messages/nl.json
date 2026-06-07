@@ -1,0 +1,31 @@
+{
+	"home": {
+		"title": "Welkom bij je Next.js Template",
+		"subtitle": "Gebouwd met Next.js 16, TypeScript, Mantine en een custom PostCSS thema-systeem.",
+		"footer": "Next.js Template — Gebouwd met TypeScript, Mantine en PostCSS"
+	},
+	"showcase": {
+		"notifications": {
+			"title": "Meldingen",
+			"success": "Toon succes",
+			"error": "Toon fout",
+			"withIcon": "Met icoon",
+			"asyncProgress": "Asynchroon"
+		},
+		"icons": {
+			"title": "Tabler Iconen",
+			"description": "Meer dan 5.000 iconen beschikbaar via @tabler/icons-react."
+		},
+		"motion": {
+			"title": "Beweging (Animatie)",
+			"fadeIn": "Invliegen",
+			"hoverMe": "Hover mij",
+			"spinning": "Draaiend"
+		}
+	},
+	"locale": {
+		"label": "Taal",
+		"en": "English",
+		"nl": "Nederlands"
+	}
+}

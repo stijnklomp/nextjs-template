@@ -1,57 +1,57 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-		"allowJs": true,
-		"allowSyntheticDefaultImports": true,
-		"baseUrl": ".",
-		"declaration": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"incremental": true,
-		"inlineSourceMap": false,
-		"isolatedModules": true,
-		"jsx": "preserve",
 		"lib": ["dom", "dom.iterable", "esnext"],
-		"listEmittedFiles": false,
-		"listFiles": false,
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"target": "ES2017",
+		"module": "esnext",
+		"moduleDetection": "force",
+		"allowJs": true,
+
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
 		"noEmit": true,
+		"isolatedModules": true,
+		"jsx": "react-jsx",
+		"incremental": true,
+
+		"strict": true,
+		"skipLibCheck": true,
 		"noFallthroughCasesInSwitch": true,
-		"paths": {
-			"@/app/*": ["app/*"],
-			"@/utils/*": ["utils/*"],
-			"@/features/*": ["features/*"],
-			"@/public/*": ["public/*"],
-			"@/test/*": ["test/*"],
-			"@/styles/*": ["styles/*"]
-		},
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"forceConsistentCasingInFileNames": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+
 		"plugins": [
 			{
 				"name": "next"
 			}
 		],
-		"pretty": true,
-		"resolveJsonModule": true,
-		"rootDir": ".",
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"strictNullChecks": true,
-		"target": "es5",
-		"traceResolution": false,
-		"types": ["node", "jest", "@testing-library/jest-dom"]
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
-	"exclude": ["node_modules", ".husky", ".next"],
 	"include": [
-		"**/*.js",
-		"**/*.jsx",
+		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"global.d.ts",
-		"jest.setup.js",
-		"next.config.js",
-		".eslintrc.cjs",
-		".next/types/**/*.ts"
+		".next/types/**/*.ts",
+		".next/dev/types/**/*.ts",
+		"**/*.mts"
+	],
+	"exclude": [
+		"node_modules",
+		".husky",
+		".next",
+		"test",
+		"jest.config.ts",
+		"playwright.config.ts",
+		"typedoc.config.js"
 	]
 }

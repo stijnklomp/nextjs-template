@@ -1,24 +1,22 @@
-FROM node:20-alpine AS deps
+FROM oven/bun:alpine AS deps
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY bun.lock package.json ./
+RUN bun install --frozen-lockfile --ignore-scripts
 
-FROM node:20-alpine AS builder
+FROM oven/bun:alpine AS builder
 WORKDIR /app
+ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
-COPY --chown=node:node . .
-ENV NODE_ENV build
-ENV NEXT_TELEMETRY_DISABLED 1
-RUN npm run build
+COPY . .
+RUN bun run build
 
-FROM node:20-alpine AS runner
+FROM oven/bun:alpine AS runner
 WORKDIR /app
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
-COPY --from=builder --chown=node:node /app/next.config.js ./
-COPY --from=builder --chown=node:node /app/public ./public
-COPY --from=builder --chown=node:node /app/.next/standalone ./
-COPY --from=builder --chown=node:node /app/.next/static ./.next/static
+ENV NODE_ENV=production
+RUN adduser --system --uid 1001 --ingroup bun nextjs
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:bun /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:bun /app/.next/static ./.next/static
+USER nextjs
 EXPOSE 3000
-ENV PORT 3000
-ENTRYPOINT ["node", "server.js"]
+CMD ["bun", "server.js"]

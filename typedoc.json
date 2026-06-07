@@ -1,4 +1,0 @@
-{
-	"entryPoints": ["app", "features", "utils"],
-	"extends": ["./node_modules/stijnklomp-linting-formatting-config/typedoc"]
-}

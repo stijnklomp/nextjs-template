@@ -1,0 +1,35 @@
+.toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 16px;
+	border: 1px solid var(--color-border-primary);
+	border-radius: 8px;
+	background: var(--color-bg-secondary);
+	color: var(--color-text-primary);
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		transform 0.1s ease;
+}
+
+.toggle:hover {
+	background: var(--color-bg-tertiary);
+	border-color: var(--color-border-secondary);
+}
+
+.toggle:active {
+	transform: scale(0.98);
+}
+
+.icon {
+	font-size: 18px;
+	line-height: 1;
+}
+
+.label {
+	font-family: inherit;
+}
