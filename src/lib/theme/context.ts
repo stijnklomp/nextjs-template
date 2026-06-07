@@ -6,6 +6,7 @@ import type { TThemeModelUse } from "./types"
 
 export const ThemeContext = createContext<TThemeModelUse>({
 	data: { currentColourMode: "dark" },
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	setThemeModel: () => {},
 })
 

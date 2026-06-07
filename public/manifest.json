@@ -1,0 +1,28 @@
+{
+	"name": "Next.js Template",
+	"short_name": "Next.js",
+	"description": "Next.js template with Mantine, PostCSS theming, and TypeScript",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#0a0a0a",
+	"theme_color": "#0a0a0a",
+	"orientation": "portrait-primary",
+	"lang": "en",
+	"icons": [
+		{
+			"src": "/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "any"
+		},
+		{
+			"src": "/icon.svg",
+			"sizes": "any",
+			"type": "image/svg+xml",
+			"purpose": "maskable"
+		}
+	],
+	"screenshots": [],
+	"categories": ["development", "utilities"],
+	"prefer_related_applications": false
+}

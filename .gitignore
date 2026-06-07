@@ -18,6 +18,7 @@ test/e2e/reports/
 # next.js
 /.next/
 /.next.stale/
+.swc/
 /out/
 
 # production
