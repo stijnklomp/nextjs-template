@@ -19,14 +19,15 @@ This skill describes the development workflow, commands, and tooling for this Ne
 ## Installation
 
 Inside a Docker Compose container:
+
 ```bash
 docker compose --profile dev run --rm dev bun install --frozen-lockfile
 ```
 
 ## Environment Configuration
 
-| File | Purpose |
-|------|---------|
+| File               | Purpose                    |
+| ------------------ | -------------------------- |
 | `.env.development` | Local development defaults |
 
 Key environment variables:
@@ -131,6 +132,7 @@ ESLint uses `stijnklomp-linting-formatting-config` with strict TypeScript and Re
 **This project currently has no test suite configured.** The `package.json` has no test scripts.
 
 If you want to add tests, consider:
+
 - **Bun test runner** (`bun:test`) for unit tests
 - **Playwright** for E2E tests (a commented-out service exists in `docker-compose.yml`)
 
@@ -144,6 +146,7 @@ docker compose --profile dev run --rm dev bun run doc
 ```
 
 **Fallback:**
+
 ```bash
 bun run doc
 ```
@@ -167,9 +170,9 @@ If you add Prisma or another ORM later, update the migration script.
 
 ### Profiles
 
-| Profile | Services | Purpose |
-|-----------|----------|---------|
-| `dev` | dev, db, rabbitmq, db-migration | Local development with hot reload |
+| Profile | Services                          | Purpose                                |
+| ------- | --------------------------------- | -------------------------------------- |
+| `dev`   | dev, db, rabbitmq, db-migration   | Local development with hot reload      |
 | `local` | local, db, rabbitmq, db-migration | Build and run production image locally |
 
 ### Start Development Environment
@@ -181,6 +184,7 @@ docker compose --profile dev up --build
 This mounts the current directory into the container and runs `bun run dev`.
 
 To run subsequent commands inside the already-running container:
+
 ```bash
 docker compose --profile dev exec dev <COMMAND>
 ```
@@ -214,10 +218,10 @@ docker compose --profile dev exec dev <COMMAND>
 
 ```javascript
 const nextConfig = {
-  output: "standalone",
-  experimental: {
-    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
-  },
+	output: "standalone",
+	experimental: {
+		optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+	},
 }
 ```
 
@@ -228,24 +232,25 @@ const nextConfig = {
 
 ```javascript
 module.exports = {
-  plugins: {
-    "postcss-preset-mantine": {},
-    "postcss-simple-vars": {
-      variables: {
-        "mantine-breakpoint-xs": "36em",
-        "mantine-breakpoint-sm": "48em",
-        "mantine-breakpoint-md": "62em",
-        "mantine-breakpoint-lg": "75em",
-        "mantine-breakpoint-xl": "88em",
-      },
-    },
-  },
+	plugins: {
+		"postcss-preset-mantine": {},
+		"postcss-simple-vars": {
+			variables: {
+				"mantine-breakpoint-xs": "36em",
+				"mantine-breakpoint-sm": "48em",
+				"mantine-breakpoint-md": "62em",
+				"mantine-breakpoint-lg": "75em",
+				"mantine-breakpoint-xl": "88em",
+			},
+		},
+	},
 }
 ```
 
 ### Dockerfile
 
 Multi-stage build:
+
 1. **deps** — Install dependencies with lockfile
 2. **builder** — Build the Next.js app
 3. **runner** — Copy only `.next/standalone`, `.next/static`, and `public`; run `bun server.js`
@@ -258,7 +263,7 @@ Pre-commit runs `lint-staged` with `.lintstagedrc.json`:
 
 ```json
 {
-  "*.{js,cjs,mjs,ts,tsx,json,yml,yaml}": ["prettier --write"]
+	"*.{js,cjs,mjs,ts,tsx,json,yml,yaml}": ["prettier --write"]
 }
 ```
 
@@ -267,23 +272,28 @@ All staged JS/TS/TSX/JSON/YAML files are auto-formatted with Prettier on commit.
 ## Troubleshooting
 
 ### "RabbitMQ connection refused"
+
 - The RabbitMQ service is available via Docker Compose but not yet wired in the application code
 - Management UI is at `http://localhost:15672`
 
 ### "DATABASE_URL environment variable is not defined"
+
 - Ensure `.env.development` exists and is loaded
 - The Docker Compose services set `DATABASE_URL` automatically
 
 ### Bun lockfile out of sync
+
 - Inside Docker: Delete `bun.lock` and run `docker compose --profile dev run --rm dev bun install --frozen-lockfile`
 - Fallback: Delete `bun.lock` and run `bun install --frozen-lockfile`
 - Or just run `bun install` to update the lockfile
 
 ### Linting fails after editing JSON files
+
 - Inside Docker: `docker compose --profile dev run --rm dev bun run lint:fix`
 - Fallback: `bun run lint:fix`
 
 ### TypeDoc generation fails
+
 - Inside Docker: `docker compose --profile dev run --rm dev bun run doc`
 - Fallback: `bun run doc`
 - Check that `typedoc.config.js` is excluded from `tsconfig.json`

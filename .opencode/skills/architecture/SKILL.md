@@ -21,12 +21,12 @@ This skill describes the architecture, patterns, and conventions used in this Ne
 
 The project follows Next.js App Router conventions:
 
-| Directory | Purpose |
-|-----------|---------|
-| `src/app/` | Next.js App Router pages and layouts (root layout, page, error, loading, not-found) |
-| `src/components/` | React components (UI components, reusable parts) |
-| `src/lib/` | Library code: theme system, utilities, shared logic |
-| `public/` | Static assets (images, fonts, SVGs) |
+| Directory         | Purpose                                                                             |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| `src/app/`        | Next.js App Router pages and layouts (root layout, page, error, loading, not-found) |
+| `src/components/` | React components (UI components, reusable parts)                                    |
+| `src/lib/`        | Library code: theme system, utilities, shared logic                                 |
+| `public/`         | Static assets (images, fonts, SVGs)                                                 |
 
 ### Key Files
 
@@ -55,10 +55,10 @@ Configured in `tsconfig.json` paths and `bunfig.toml` resolve alias.
 
 - **Server Components** (default): Run on the server. Can access the file system, database, etc. No `'use client'` directive.
 - **Client Components**: Must add `'use client'` at the top of the file. Required for:
-  - React hooks (`useState`, `useEffect`, `useContext`)
-  - Browser APIs (`localStorage`, `window`)
-  - Event handlers (`onClick`, `onSubmit`)
-  - Mantine components that require client-side rendering
+    - React hooks (`useState`, `useEffect`, `useContext`)
+    - Browser APIs (`localStorage`, `window`)
+    - Event handlers (`onClick`, `onSubmit`)
+    - Mantine components that require client-side rendering
 
 ### Theming with Mantine
 
@@ -74,6 +74,7 @@ The theme is currently hardcoded to `dark` mode in `ThemeModel`. The `theme-togg
 ### Layout Pattern
 
 Root layout (`src/app/layout.tsx`):
+
 - Imports `@mantine/core/styles.css` for base Mantine styles
 - Imports `globals.css` for custom styles
 - Wraps children with `ThemeProvider`
@@ -81,12 +82,14 @@ Root layout (`src/app/layout.tsx`):
 ## Error Handling
 
 Next.js App Router provides error boundaries via `error.tsx` and `global-error.tsx`:
+
 - `error.tsx` — Catches errors in the route segment
 - `global-error.tsx` — Catches errors globally (must be a Client Component)
 
 ## PostCSS Configuration
 
 PostCSS is configured in `postcss.config.cjs`:
+
 - `postcss-preset-mantine` — Mantine's PostCSS preset
 - `postcss-simple-vars` — CSS variables for Mantine breakpoints
 

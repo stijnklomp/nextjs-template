@@ -27,6 +27,7 @@
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
+		"types": ["jest", "node", "react", "react-dom"],
 
 		"plugins": [
 			{

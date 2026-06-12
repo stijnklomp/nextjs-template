@@ -12,6 +12,7 @@ This skill describes the testing state of this Next.js + Bun project.
 **This project currently has no test suite configured.**
 
 The `package.json` has no test scripts:
+
 - No `test`, `test:unit`, `test:feature`, or `test:acceptance` scripts
 - No test framework dependencies (no `bun:test` is used yet, though Bun has it built-in)
 - No `test/` directory exists
@@ -28,9 +29,9 @@ Use Bun's built-in test runner (`bun:test`):
 import { describe, test, expect } from "bun:test"
 
 describe("Theme utilities", () => {
-  test("should toggle theme", () => {
-    // Test theme toggle logic
-  })
+	test("should toggle theme", () => {
+		// Test theme toggle logic
+	})
 })
 ```
 
@@ -40,12 +41,13 @@ A Playwright service is commented out in `docker-compose.yml`. To enable it:
 
 1. Uncomment the `playwright` service in `docker-compose.yml`
 2. Add Playwright as a dev dependency:
-   ```bash
-   bun add --dev @playwright/test
-   ```
+    ```bash
+    bun add --dev @playwright/test
+    ```
 3. Create `playwright.config.ts`
 
 Run Playwright inside Docker:
+
 ```bash
 docker compose --profile dev exec playwright npx playwright test
 ```
@@ -53,6 +55,7 @@ docker compose --profile dev exec playwright npx playwright test
 ### 3. Component Tests
 
 For React component testing, consider:
+
 - **Testing Library** (`@testing-library/react`) with Bun test runner
 - Or **Storybook** for visual component testing
 

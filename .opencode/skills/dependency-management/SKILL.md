@@ -145,13 +145,13 @@ If both pass, the upgrade is safe to commit.
 
 **Causes & Fixes**:
 
-| Upgrade | Common Breakage | Fix |
-|---------|----------------|-----|
-| Next.js major | App Router API changes | Update page/layout exports; check `Metadata` API changes |
-| React major | Hook API changes | Update `use()` and other new APIs; check type changes |
-| TypeScript major | Stricter checks | Fix type errors surfaced by new strictness; `noUncheckedIndexedAccess` is already on |
-| Mantine major | Component API changes | Update component props; check for renamed or removed props |
-| ESLint / plugins | Rule renames or new rules | Fix new violations; update `eslint.config.js` if needed |
+| Upgrade          | Common Breakage           | Fix                                                                                  |
+| ---------------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| Next.js major    | App Router API changes    | Update page/layout exports; check `Metadata` API changes                             |
+| React major      | Hook API changes          | Update `use()` and other new APIs; check type changes                                |
+| TypeScript major | Stricter checks           | Fix type errors surfaced by new strictness; `noUncheckedIndexedAccess` is already on |
+| Mantine major    | Component API changes     | Update component props; check for renamed or removed props                           |
+| ESLint / plugins | Rule renames or new rules | Fix new violations; update `eslint.config.js` if needed                              |
 
 **General approach**:
 
@@ -168,6 +168,7 @@ bun run lint:fix
 **Symptom**: Build passes but the app crashes.
 
 **Checklist**:
+
 1. Check `next.config.mjs` — Next.js config API may have changed
 2. Check `postcss.config.cjs` — PostCSS plugin APIs may have changed
 3. Check Mantine imports — Major versions often change import paths
@@ -178,6 +179,7 @@ bun run lint:fix
 **Symptom**: App fails in Docker but works locally.
 
 **Causes**:
+
 - Image base changed (`oven/bun:alpine` or `oven/bun:latest` updated)
 - PostgreSQL or RabbitMQ image updated with breaking changes
 - New Bun version behaves differently in Alpine
@@ -218,6 +220,7 @@ git commit -m "chore(deps): update dependencies"
 ```
 
 Include in the commit:
+
 - `package.json` (updated version ranges)
 - `bun.lock` (the new resolved lockfile)
 - Any code changes required to fix breaking changes
