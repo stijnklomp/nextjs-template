@@ -19,7 +19,7 @@
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:feature": "jest test/feature",
-		"test:unit": "jest test/unit",
+		"test:unit": "jest --testPathPatterns='src/.*\\.(test|spec)\\.[jt]sx?$'",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {

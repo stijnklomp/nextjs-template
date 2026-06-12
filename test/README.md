@@ -6,7 +6,7 @@ Tests are organized by level: unit, feature, and e2e. The structure follows the 
 
 | Level | Directory | Runner | Description |
 |-------|-----------|--------|-------------|
-| Unit | `test/unit/` | Jest + RTL | Isolated component and utility tests with mocked dependencies |
+| Unit | Colocated in `src/` | Jest + RTL | Isolated component and utility tests with mocked dependencies |
 | Feature | `test/feature/` | Jest | Integration tests exercising full request/response flows |
 | E2E | `test/e2e/` | Playwright | Browser-based tests against a running application |
 
