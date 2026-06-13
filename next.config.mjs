@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin()
 /** @type {import("next").NextConfig} */
 const nextConfig = {
 	output: "standalone",
+	allowedDevOrigins: ["*.*.*.*"],
 	experimental: {
 		optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
 	},
