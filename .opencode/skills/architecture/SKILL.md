@@ -119,3 +119,44 @@ Follow this order when adding a new page:
 4. **Type all props** — Use TypeScript interfaces for component props
 5. **Use `T` prefix for type aliases** — e.g., `TTheme`, `TThemeModel`
 6. **Export from `index.ts`** — Re-export from `src/lib/<module>/index.ts` for clean imports
+
+## Code Style
+
+### Arrow Functions
+
+Use arrow functions over `function` declarations everywhere:
+
+```ts
+// Correct
+const add = (a: number, b: number): number => a + b
+export const useToggle = () => { ... }
+const handleClick = () => { ... }
+
+// Incorrect
+function add(a: number, b: number): number { return a + b }
+export function useToggle() { ... }
+```
+
+This applies to all function forms:
+- `function name() {}` → `const name = () => {}`
+- `async function name() {}` → `const name = async () => {}`
+- `export function name() {}` → `export const name = () => {}`
+- `export default function name() {}` → `const name = () => {}` + `export default name`
+
+**Exceptions:** Generator functions (`function*`), class methods, and callbacks passed to utilities that bind `this` explicitly.
+
+### ES Modules
+
+The project uses ES Modules exclusively (enforced by `"type": "module"` in `package.json` and `verbatimModuleSyntax` in `tsconfig.json`):
+
+```ts
+// Correct
+import { foo } from "./bar"
+export const baz = () => {}
+
+// Incorrect
+const foo = require("./bar")
+module.exports = { baz }
+```
+
+**Known exception:** `postcss.config.cjs` (if present) is kept as CommonJS because PostCSS requires it. No other `.cjs` or CJS-style files should be added.
