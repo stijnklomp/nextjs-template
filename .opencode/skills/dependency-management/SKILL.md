@@ -128,8 +128,8 @@ This runs ESLint with `--fix`.
 After upgrading, verify the project still builds and type-checks:
 
 ```bash
-# TypeScript type checking
-bun run typecheck
+# Linting & type checking (ESLint + tsc)
+bun run lint
 
 # Build the Next.js app
 bun run build
@@ -157,7 +157,7 @@ If both pass, the upgrade is safe to commit.
 
 ```bash
 # See all type errors at once
-bun run typecheck
+bun run lint
 
 # Fix the most common ones first
 bun run lint:fix
@@ -197,13 +197,13 @@ bun run lint:fix
 rm bun.lock
 bun install
 bun run lint:fix
-bun run typecheck
+bun run lint
 bun run build
 ```
 
 ## Breaking Change Triage Strategy
 
-When `bun run typecheck` or `bun run build` fails after a version bump:
+When `bun run lint` or `bun run build` fails after a version bump:
 
 1. **Read the changelogs** of the upgraded packages (Next.js, React, TypeScript, Mantine are the most likely culprits)
 2. **Fix TypeScript errors first** — they usually point to API changes
@@ -212,7 +212,7 @@ When `bun run typecheck` or `bun run build` fails after a version bump:
 
 ## Committing the Upgrade
 
-Once `bun run typecheck` and `bun run build` pass:
+Once `bun run lint` and `bun run build` pass:
 
 ```bash
 git add -A
@@ -227,7 +227,7 @@ Include in the commit:
 
 ## Important Rules
 
-- **Never commit a broken state** — always run `bun run typecheck` and `bun run build` before committing
+- **Never commit a broken state** — always run `bun run lint` and `bun run build` before committing
 - **Always run `lint:fix`** after upgrading formatting-related packages (Prettier, ESLint, etc.)
 - **If upgrading Next.js**, verify the app still builds correctly with `bun run build`
 - **When in doubt**, restore `bun.lock` from git and try a more targeted upgrade

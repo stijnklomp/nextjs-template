@@ -8,8 +8,8 @@
 		"dev": "rm -rf .next && next dev --hostname 0.0.0.0",
 		"doc": "typedoc",
 		"format": "prettier --write .",
-		"lint": "eslint --report-unused-disable-directives . --cache",
-		"lint:fix": "eslint --report-unused-disable-directives . --cache --fix",
+		"lint": "eslint --report-unused-disable-directives . && tsc --noEmit",
+		"lint:fix": "eslint --report-unused-disable-directives . --fix && tsc --noEmit",
 		"prepare": "husky",
 		"sort": "./node_modules/stijnklomp-linting-formatting-config/sortJson.sh ./tsconfig.json ./.lintstagedrc.json",
 		"start": "node .next/standalone/server.js",
@@ -19,8 +19,7 @@
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
 		"test:feature": "jest test/feature",
-		"test:unit": "jest --testPathPatterns='src/.*\\.(test|spec)\\.[jt]sx?$'",
-		"typecheck": "tsc --noEmit"
+		"test:unit": "jest --testPathPatterns='src/.*\\.(test|spec)\\.[jt]sx?$'"
 	},
 	"dependencies": {
 		"@mantine/core": "^9.3.0",

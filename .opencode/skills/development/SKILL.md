@@ -96,7 +96,7 @@ bun run build
 Inside a Docker Compose container:
 
 ```bash
-# Check linting
+# Linting & type checking (ESLint + tsc)
 docker compose --profile dev run --rm dev bun run lint
 
 # Fix linting
@@ -104,9 +104,6 @@ docker compose --profile dev run --rm dev bun run lint:fix
 
 # Format with Prettier
 docker compose --profile dev run --rm dev bun run format
-
-# TypeScript type checking
-docker compose --profile dev run --rm dev bun run typecheck
 ```
 
 **Fallback:**
@@ -115,7 +112,6 @@ docker compose --profile dev run --rm dev bun run typecheck
 bun run lint
 bun run lint:fix
 bun run format
-bun run typecheck
 ```
 
 ESLint uses `stijnklomp-linting-formatting-config` with strict TypeScript and React rules. Key custom rules:
