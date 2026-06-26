@@ -80,3 +80,4 @@ coveragePathIgnorePatterns = [
 1. **This project currently has no tests** — do not reference test scripts, test directories, or test utilities that don't exist
 2. **If adding tests**, create the test infrastructure first (scripts, directories, config) before writing test files
 3. **Do not write test files** for this project unless the user explicitly asks for tests to be added
+4. **Run `bun run lint:fix` after writing tests** to auto-fix any lint issues before committing. Prefer this over manual fixes.

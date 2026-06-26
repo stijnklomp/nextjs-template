@@ -123,6 +123,8 @@ ESLint uses `stijnklomp-linting-formatting-config` with strict TypeScript and Re
 - Object literal numeric properties exempt from naming
 - React/JSX scope rules are off (Next.js handles this automatically)
 
+> Prefer running `bun run lint:fix` to auto-fix lint errors rather than fixing each one manually. The `--fix` flag handles most formatting and simple rule violations automatically. This saves tokens and avoids introducing mistakes. Only fix remaining errors by hand after `lint:fix` has done its job.
+
 ### Testing
 
 **This project currently has no test suite configured.** The `package.json` has no test scripts.
