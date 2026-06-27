@@ -3,6 +3,7 @@ x-acceptance: &acceptance
   volumes:
     - .:/src
   working_dir: /src
+  user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
   tty: true
   depends_on:
     # rabbitmq:
@@ -47,6 +48,7 @@ services:
     volumes:
       - .:/src
     working_dir: /src
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     command: |
       sh -c "
         if [ ! -d node_modules ]; then
@@ -102,6 +104,7 @@ services:
     volumes:
       - .:/src
     working_dir: /src
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test"
     profiles:
       - test
@@ -111,6 +114,7 @@ services:
     volumes:
       - .:/src
     working_dir: /src
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test:coverage"
     profiles:
       - test
@@ -120,6 +124,7 @@ services:
     volumes:
       - .:/src
     working_dir: /src
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     command: sh -c "bun install --frozen-lockfile --ignore-scripts --no-optional 2>/dev/null; bun run test:e2e"
     depends_on:
       - dev
