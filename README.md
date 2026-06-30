@@ -37,7 +37,7 @@ bun run build && bun run start
 ### With Docker
 
 ```sh
-docker build -t nextjs-template . && docker run --rm -p 3000:3000 nextjs-template
+docker build -t stijnklomp/nextjs-template . && docker run --rm -p 3000:3000 stijnklomp/nextjs-template
 ```
 
 ### With Docker Compose

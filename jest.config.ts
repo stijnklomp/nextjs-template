@@ -6,6 +6,9 @@ const createJestConfig = nextJest({ dir: "./" })
 const customJestConfig: Config = {
 	clearMocks: true,
 	displayName: "nextjs-template",
+	moduleNameMapper: {
+		"^@/(.*)$": "<rootDir>/src/$1",
+	},
 	setupFilesAfterEnv: ["<rootDir>/test/jest.setup.ts"],
 	testEnvironment: "jsdom",
 	testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/test/e2e/"],

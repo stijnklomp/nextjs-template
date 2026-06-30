@@ -7,3 +7,5 @@
 !public/**
 !src/**
 !postcss.config.cjs
+!messages/**
+!.env.production
