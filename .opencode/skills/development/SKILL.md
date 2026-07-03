@@ -125,6 +125,14 @@ ESLint uses `stijnklomp-linting-formatting-config` with strict TypeScript and Re
 
 > Prefer running `bun run lint:fix` to auto-fix lint errors rather than fixing each one manually. The `--fix` flag handles most formatting and simple rule violations automatically. This saves tokens and avoids introducing mistakes. Only fix remaining errors by hand after `lint:fix` has done its job.
 
+### Non-negotiable: fix lint errors properly
+
+- **Never** add `eslint-disable` comments — not at the file level, not inline, not for a single line. Every lint error must be fixed by changing the code itself.
+- **Never** modify `.eslintrc`/`eslint.config.js` or any linting configuration to silence errors.
+- **Never** argue, negotiate, or suggest weakening lint rules. The config is intentionally strict and is not up for debate.
+- If a lint rule flags code that is technically correct (e.g., naming convention on module export keys in a `vi.mock` call), restructure the code to satisfy the rule (e.g., use bracket notation or a `Record<string, unknown>` helper) instead of silencing it.
+- This applies to all projects in the monorepo, not just this one.
+
 ### Testing
 
 **This project currently has no test suite configured.** The `package.json` has no test scripts.
