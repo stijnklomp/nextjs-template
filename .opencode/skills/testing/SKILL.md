@@ -21,7 +21,18 @@ The `package.json` has no test scripts:
 
 If you want to add tests, here is the recommended approach:
 
-### 1. Unit Tests
+### Test Organization — Separation of Concerns
+
+Tests should be **co-located** with the source file they test, with two categories distinguished by file extension:
+
+| Extension | Category | What it tests |
+|-----------|----------|---------------|
+| `*.test.ts` | Business logic | Functions, hooks, utilities, API route handlers — no JSX rendering |
+| `*.test.tsx` | UI / elements | Component rendering, user interactions, visual states |
+
+This maps naturally: business logic never imports JSX (`.ts`), while UI tests always render components (`.tsx`).
+
+### 1. Unit / Business Logic Tests (`*.test.ts`)
 
 Use Bun's built-in test runner (`bun:test`):
 
@@ -35,7 +46,16 @@ describe("Theme utilities", () => {
 })
 ```
 
-### 2. E2E Tests
+### 2. UI / Element Tests (`*.test.tsx`)
+
+For React component testing, use **Testing Library** (`@testing-library/react`):
+
+```typescript
+import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+```
+
+### 3. E2E Tests
 
 A Playwright service is commented out in `docker-compose.yml`. To enable it:
 
@@ -51,13 +71,6 @@ Run Playwright inside Docker:
 ```bash
 docker compose --profile dev exec playwright npx playwright test
 ```
-
-### 3. Component Tests
-
-For React component testing, consider:
-
-- **Testing Library** (`@testing-library/react`) with Bun test runner
-- Or **Storybook** for visual component testing
 
 ## Code Coverage (If Adding Tests)
 

@@ -21,12 +21,14 @@ This skill describes the architecture, patterns, and conventions used in this Ne
 
 The project follows Next.js App Router conventions:
 
-| Directory         | Purpose                                                                             |
-| ----------------- | ----------------------------------------------------------------------------------- |
-| `src/app/`        | Next.js App Router pages and layouts (root layout, page, error, loading, not-found) |
-| `src/components/` | React components (UI components, reusable parts)                                    |
-| `src/lib/`        | Library code: theme system, utilities, shared logic                                 |
-| `public/`         | Static assets (images, fonts, SVGs)                                                 |
+| Directory / Pattern | Purpose                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------- |
+| `src/app/`          | Next.js App Router pages and layouts (root layout, page, error, loading, not-found) |
+| `src/components/`   | React components (UI components, reusable parts)                                    |
+| `src/lib/`          | Library code: theme system, utilities, shared logic                                 |
+| `public/`           | Static assets (images, fonts, SVGs)                                                 |
+| `*.test.ts`         | Business logic unit tests, co-located with source                                   |
+| `*.test.tsx`        | UI/element tests, co-located with source                                            |
 
 ### Key Files
 
@@ -119,6 +121,7 @@ Follow this order when adding a new page:
 4. **Type all props** — Use TypeScript interfaces for component props
 5. **Use `T` prefix for type aliases** — e.g., `TTheme`, `TThemeModel`
 6. **Export from `index.ts`** — Re-export from `src/lib/<module>/index.ts` for clean imports
+7. **Co-locate tests with source** — Business logic tests use `*.test.ts`; UI/element tests use `*.test.tsx`. The extension distinguishes the category: `.ts` = no rendering, `.tsx` = component rendering with Testing Library
 
 ## Code Style
 
